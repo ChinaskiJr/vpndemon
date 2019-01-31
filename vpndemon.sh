@@ -8,18 +8,6 @@ header="VPNDemon\nhttps://github.com/chinaskijr/vpndemon\n\n"
 # Clear log file.
 > "$logPath"
 
-list_descendants()
-{
-    local children=$(ps -o pid= --ppid "$1")
-
-    for pid in $children
-    do
-        list_descendants "$pid"
-    done
-
-    echo "$children"
-}
-
 # Consider the first argument as the target process
 killProgramName="$1"
 if [ -z "$killProgramName" ]
