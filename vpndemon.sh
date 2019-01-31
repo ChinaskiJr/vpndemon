@@ -3,7 +3,7 @@
 interface="org.freedesktop.NetworkManager.VPN.Connection"
 member="VpnStateChanged"
 logPath="/tmp/vpndemon"
-header="VPNDemon\nhttps://github.com/primaryobjects/vpndemon\n\n"
+header="VPNDemon\nhttps://github.com/chinaskijr/vpndemon\n\n"
 
 # Clear log file.
 > "$logPath"
@@ -24,7 +24,7 @@ list_descendants()
 killProgramName="$1"
 if [ -z "$killProgramName" ]
 then
-    killProgramName=$(zenity --entry --title="VPNDemon" --text="$header Enter name of process to kill when VPN disconnects:")
+    read -p "No process name entered. Please enter name of process to kill when VPN disconnects: " killProgramName
 fi
 
 result=$?
@@ -35,12 +35,6 @@ then
         header="$header Target: $killProgramName\n\n"
 
         (tail -f "$logPath") |
-        {
-            zenity --progress --title="VPNDemon" --text="$header Monitoring VPN" --pulsate
-
-            # Kill all child processes upon exit.
-            kill $(list_descendants $$)
-        } |
         {
             # Monitor for VPNStateChanged event.
             dbus-monitor --system "type='signal',interface='$interface',member='$member'" |
@@ -81,6 +75,7 @@ then
             }
         }
     else
-        zenity --error --text="No process name entered."
+        echo "No process name entered."
+        exit 2
     fi
 fi
