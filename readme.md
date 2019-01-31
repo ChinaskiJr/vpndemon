@@ -1,54 +1,18 @@
-VPNDemon
+THIS IS A FORK FROM VPNDemon (https://github.com/primaryobjects/vpndemon)
 =========
 ### for Linux
 
-
 VPNDemon monitors your VPN connection and kills a target program upon disconnect. It's the safest and easiest way to help prevent DNS leaks and enhance your security while connected over a VPN.
 
-![Screenshot 1](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/screenshots/screenshot4.png)
+The purpose of this fork is to remove the GUI and to simply work in a terminal.
 
 It's as simple as this:
 
 - Run vpndemon.sh.
 - Enter the name of the target process to kill when the VPN disconnects.
+- Or you can also set the target process as an argument.
 
 That's it!
-
-Install
----
-
-1. Download [vpndemon.sh](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/vpndemon.sh) and place it in a folder, such as ~/Documents/vpndemon.
- ```sh
- cd ~/Documents/vpndemon
- bash vpndemon.sh
- ```
-
-2. Enter the name of a program to kill when the VPN disconnects. This can be a substring of the name, such as "chrome", "firefox", etc.
-
- ![Enter a target process to kill upon VPN disconnect](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/screenshots/screenshot1.png)
-
-3. Click OK to start monitoring.
-
- ![Monitoring VPN connection](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/screenshots/screenshot2.png)
-
-3. VPNDemon is now monitoring your VPN connection. If your not already connected to your VPN, go ahead and connect now.
-
- ![Detecting a VPN connection](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/screenshots/screenshot3.png)
-
-4. Try disconnecting your VPN. VPNDemon will detect the disconnect, kill all instances of the target program, and update its status.
-
- ![Detecting a VPN disconnect](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/screenshots/screenshot4.png)
-
-Installing as an Application
----
-
-1. Download [vpndemon.sh](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/vpndemon.sh) and [install.sh](https://raw.githubusercontent.com/primaryobjects/vpndemon/master/install.sh). Run install.sh.
- ```sh
- cd ~/Documents/vpndemon
- sudo bash install.sh
- ```
-
-2. After installing, open the start menu and search for VPNDemon. Right-click the result and select "Add to Panel" or "Add to Desktop".
 
 Technical Details
 ---
@@ -98,5 +62,8 @@ MIT
 
 Author
 ----
-Kory Becker
+Original : Kory Becker
 http://www.primaryobjects.com/kory-becker
+
+Fork : Robin Colombier
+https://www.robin-colombier.com
